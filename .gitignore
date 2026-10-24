@@ -50,3 +50,10 @@ app/scoped/
 .android-sdk/
 .android/
 .signing/
+
+# ─── 本地工具链（vfox / Kotlin 会话缓存）──────────────────
+# vfox 的项目级 SDK 版本文件与软链接（指向 ~/.vfox 下的 JDK）
+.vfox/
+.vfox.toml
+# Kotlin 2.x 编译时会话缓存
+.kotlin/

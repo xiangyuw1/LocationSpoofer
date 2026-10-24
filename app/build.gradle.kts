@@ -28,6 +28,12 @@ android {
     val googleMapsApiKey =
         System.getenv("GOOGLE_MAPS_API_KEY") ?: getLocalConfig("GOOGLE_MAPS_API_KEY") ?: ""
 
+    // 高德 Key：优先环境变量，其次仓库根目录 local.yml，最后回落到仓库内置的默认 Key。
+    // 自己的 Key 只写 local.yml（已被 gitignore），不要提交进仓库。
+    val amapApiKey =
+        System.getenv("AMAP_API_KEY") ?: getLocalConfig("AMAP_API_KEY")
+            ?: "bdd6ae6c613b2a45b5583197f565423b"
+
     defaultConfig {
         applicationId = "com.vincenthzr.locationspoofer"
         testInstrumentationRunner = "com.vincenthzr.locationspoofer.SystemFilesInstrumentation"
@@ -41,6 +47,7 @@ android {
         }
 
         manifestPlaceholders["googleMapsApiKey"] = googleMapsApiKey
+        manifestPlaceholders["amapApiKey"] = amapApiKey
 
         splits {
             abi {
